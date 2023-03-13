@@ -68,7 +68,10 @@ const bookingMachine = createMachine({
         }
       },
       on: {
-        FINISH: "initial",
+        FINISH: {
+          target: "initial",
+          actions: 'cleanContext',
+        },
       },
     },
     passengers: {
